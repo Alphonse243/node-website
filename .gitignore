@@ -1,2 +1,14 @@
-/node_modules
 .package-lock.json
+/vendor/
+/node_modules/
+.env.backup
+.phpunit.result.cache
+composer.lock
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+.DS_Store
+Thumbs.db
+*.log
+*.cache
