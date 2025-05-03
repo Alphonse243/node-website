@@ -27,5 +27,3 @@
 
 <!-- Lightbox2 2.9.0 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox.min.js"></script>
-
-mis en jour
