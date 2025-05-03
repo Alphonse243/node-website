@@ -1,13 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Affichage API avec Bootstrap</title>
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> -->
+    
 </head>
 <body>
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam molestias, quae quos autem rem ducimus adipisci maiores sunt error, repellendus cupiditate est. Accusantium dolorem ipsa aspernatur voluptates recusandae distinctio temporibus!
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Résultats de l'API</h1>
+        <div id="resultats" class="row"></div> <!-- Conteneur pour les cartes -->
+        <div id="param" ></div>
     </div>
+
+    <script>
+        function displayProduitIdFromUrl(){
+            const paramElement = document.getElementById('param');
+            // Verifier si l'element avec id param existe
+            if(!paramElement){
+                console.error("Error : aucun element avec ce ID param trouver");
+                return;
+            }
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            if(productId !== null){
+                paramElement.textContent = productId;
+            }else{
+                console.warn("averntisement : le paramaetre id n'a pas ete trouver dans URL");
+                paramElement.textContent = "ID non specifier";
+            }
+        }
+        displayProduitIdFromUrl();
+    </script>
+
+    <!-- <script>
+        const apiUrl = 'http://localhost/karma-master/api/react-front/posts.php';
+
+        async function fetchData() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                const resultatsContainer = document.getElementById('resultats');
+                
+                // Boucle pour afficher chaque élément sous forme de carte
+                data.slice(0, 10).forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'col-md-4 mb-4';
+                    card.innerHTML = `
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.title}</h5>
+                                <p class="card-text">${item.extret.substring(0, 80)}...</p>
+                                <a href="#" class="btn btn-primary">Lire plus</a>
+                            </div>
+                        </div>
+                    `;
+                    resultatsContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données:', error);
+            }
+        }
+
+        fetchData();
+    </script> -->
 </body>
 </html>

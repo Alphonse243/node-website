@@ -34,7 +34,7 @@ app.get('/blog', (req, res)=>{
     res.sendFile(__dirname + '/public/blog.html');
 }); 
 
-app.get('/blog/detail', (req, res)=>{
+app.get('/blog-detail', (req, res)=>{
     res.sendFile(__dirname + '/public/blog-detail.html');
 }); 
 
@@ -47,7 +47,9 @@ app.get('/contact', (req, res)=>{
 app.get('/about', (req, res)=>{
     res.sendFile(__dirname + '/public/about.html');
 }); 
-
+app.get('/api', (req, res)=>{
+    res.sendFile(__dirname + '/public/api.html');
+}); 
 app.get('/404', (req, res)=>{
     res.sendFile(__dirname + '/public/404.html');
 }); 
